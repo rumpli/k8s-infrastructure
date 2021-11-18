@@ -47,7 +47,7 @@ configuration:
 
   alertmanager:
     email:
-      enabled: "true"
+      enabled: "false"
     teams_webhook:
       enabled: "true"
 
