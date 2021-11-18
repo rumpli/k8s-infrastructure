@@ -5,7 +5,7 @@ configuration:
   hetzner:
     ssh:
       port: "22333"
-      key_name: kubernetes
+      key_name: crompli-kubernetes
 
     private_network:
       name: k8s-private
@@ -14,8 +14,8 @@ configuration:
       zone: "eu-central"
 
     node:
-      name: kubernetes-server
-      type: cpx41 # https://www.hetzner.com/cloud#pricing
+      name: crompli-kubernetes
+      type: cp41 # https://www.hetzner.com/cloud#pricing
       image: ubuntu-20.04
       location: nbg1 # https://docs.hetzner.com/general/others/data-centers-and-connection
 
@@ -33,16 +33,16 @@ configuration:
       type: lb11 # https://www.hetzner.com/cloud/load-balancer#pricing
 
     k3s:
-      version: "v1.19.13+k3s1" # https://github.com/rancher/k3s/releases
+      version: "v1.22.3+k3s1" # https://github.com/rancher/k3s/releases
 
   ingress:
     domains:
-    - "jamesclonk.io"
+    - "168.119.120.254.nip.io"
 
   postgres:
     backup:
       s3:
-        enabled: "true"
+        enabled: "false"
         retention_days: "21d"
 
   alertmanager:
