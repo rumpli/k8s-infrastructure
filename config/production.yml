@@ -15,7 +15,7 @@ configuration:
 
     node:
       name: crompli-kubernetes
-      type: cp41 # https://www.hetzner.com/cloud#pricing
+      type: cx41 # https://www.hetzner.com/cloud#pricing
       image: ubuntu-20.04
       location: nbg1 # https://docs.hetzner.com/general/others/data-centers-and-connection
 
