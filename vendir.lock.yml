@@ -11,10 +11,10 @@ directories:
   path: metrics-server/templates/upstream
 - contents:
   - git:
-      commitTitle: Prepare Release v1.5.1
-      sha: d9e6109e55e037e92d35156ecb9b883e1d7c3f90
+      commitTitle: Fix changelog generation...
+      sha: e07b392a554acacb55510eece3def3663790c479
       tags:
-      - v1.5.1
+      - v1.6.0
     path: .
   path: vendor/github.com/hetznercloud/csi-driver
 - contents:
