@@ -68,7 +68,7 @@ if [ "${HETZNER_SSH_PORT}" -eq "22" ]; then
 Include /etc/ssh/sshd_config.d/*.conf
 Port 22333
 PermitRootLogin yes
-MaxAuthTries 2
+MaxAuthTries 3
 PubkeyAuthentication yes
 PasswordAuthentication no
 ChallengeResponseAuthentication no
