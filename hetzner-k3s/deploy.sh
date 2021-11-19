@@ -119,7 +119,7 @@ echo " "
 ########################################################################################################################
 ####### floating-ip ####################################################################################################
 ########################################################################################################################
-if [ "${HETZNER_FLOATING_IP_ENABLED}" == "true" ]; then
+if [ "${HETZNER_FLOATING_IP_ENABLED}" = "true" ]; then
 	echo "checking for floating-ip [${HETZNER_FLOATING_IP_NAME}] ..."
 	hcloud floating-ip list -o noheader | grep "${HETZNER_FLOATING_IP_NAME}" 1>/dev/null \
 		|| (hcloud floating-ip create --name "${HETZNER_FLOATING_IP_NAME}" --type "ipv4" \
@@ -157,7 +157,7 @@ fi
 ########################################################################################################################
 ####### load-balancer ###################################################################################################
 ########################################################################################################################
-if [ "${HETZNER_LOADBALANCER_ENABLED}" == "true" ]; then
+if [ "${HETZNER_LOADBALANCER_ENABLED}" = "true" ]; then
 	echo "checking for load-balancer [${HETZNER_LOADBALANCER_NAME}] ..."
 	hcloud load-balancer list -o noheader | grep "${HETZNER_LOADBALANCER_NAME}" 1>/dev/null \
 		|| (hcloud load-balancer create --name "${HETZNER_LOADBALANCER_NAME}" --type "${HETZNER_LOADBALANCER_TYPE}" \
@@ -195,7 +195,7 @@ test -f "${KUBECONFIG}" || sleep 30 # wait a moment if this looks like it is k3s
 
 mkdir -p $HOME/.kube || true
 HETZNER_K3S_IP="${HETZNER_NODE_IP}"
-if [ "${HETZNER_FLOATING_IP_ENABLED}" == "true" ]; then
+if [ "${HETZNER_FLOATING_IP_ENABLED}" = "true" ]; then
 	HETZNER_K3S_IP="${HETZNER_FLOATING_IP}"
 fi
 retry 5 10 hcloud server ssh -p "${HETZNER_SSH_PORT}" "${HETZNER_NODE_NAME}" \

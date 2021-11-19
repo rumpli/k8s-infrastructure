@@ -28,7 +28,7 @@ echo " "
 ########################################################################################################################
 ####### firewall #######################################################################################################
 ########################################################################################################################
-if [ "${HETZNER_FIREWALL_ENABLED}" == "true" ]; then
+if [ "${HETZNER_FIREWALL_ENABLED}" = "true" ]; then
 echo "checking for firewall [${HETZNER_FIREWALL_NAME}] ..."
 hcloud firewall list -o noheader | grep "${HETZNER_FIREWALL_NAME}" 1>/dev/null \
 	|| (echo "creating ${HETZNER_FIREWALL_NAME} ..." \

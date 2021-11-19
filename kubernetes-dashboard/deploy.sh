@@ -11,7 +11,7 @@ sops -d ${SECRETS_FILE} |
 	kapp deploy -a kubernetes-dashboard -c -y -f -
 kapp app-change garbage-collect -a kubernetes-dashboard --max 5 -y
 
-if [ "${ENVIRONMENT}" == "development" ]; then
+if [ "${ENVIRONMENT}" = "development" ]; then
 	# get a cluster-admin service account token for user auth
 	kubectl -n kubernetes-dashboard create serviceaccount dashboard-admin || true
 	kubectl -n kubernetes-dashboard create clusterrolebinding dashboard-admin \

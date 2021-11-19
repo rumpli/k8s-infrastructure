@@ -18,7 +18,7 @@ for deployment in ${deployments[@]}; do
 	popd
 done
 
-if [ "${PROMETHEUS_ALERTMANAGER_TEAMS_WEBHOOK_ENABLED}" == "true" ]; then
+if [ "${PROMETHEUS_ALERTMANAGER_TEAMS_WEBHOOK_ENABLED}" = "true" ]; then
 	pushd "prometheus-msteams"
 	./deploy.sh
 	popd

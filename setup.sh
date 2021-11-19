@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 set -u
-source $(dirname ${BASH_SOURCE[0]})/sops.sh # prepare sops
-source $(dirname ${BASH_SOURCE[0]})/env.sh # source env configuration files
+source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/sops.sh # prepare sops
+source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/env.sh # source env configuration files
 
 function basic_auth() {
 	local -r username="$1"; shift
@@ -87,7 +87,7 @@ fi
 set -u
 
 # known_hosts
-if [ "${ENVIRONMENT}" == "production" ]; then
+if [ "${ENVIRONMENT}" = "production" ]; then
 	if [ ! -f "$HOME/.ssh/known_hosts" ]; then
 		hcloud server list -o noheader | grep "${HETZNER_NODE_NAME}" 1>/dev/null \
 			&& ssh-keyscan -p "${HETZNER_SSH_PORT}" "$(hcloud server ip "${HETZNER_NODE_NAME}")" 2>/dev/null >> "$HOME/.ssh/known_hosts" || true
@@ -96,4 +96,4 @@ if [ "${ENVIRONMENT}" == "production" ]; then
 fi
 
 # kubectl config
-$(dirname ${BASH_SOURCE[0]})/kubeconfig.sh # setup kubeconfig
+$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/kubeconfig.sh # setup kubeconfig

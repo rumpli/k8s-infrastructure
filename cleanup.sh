@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -u
-source $(dirname ${BASH_SOURCE[0]})/env.sh # source env configuration files
+source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/env.sh # source env configuration files
 
 # $HOME/.ssh
 echo "removing [$HOME/.ssh/id_rsa] ..."

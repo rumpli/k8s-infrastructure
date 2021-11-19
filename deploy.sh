@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 set -u
-source $(dirname ${BASH_SOURCE[0]})/setup.sh
+source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/setup.sh
 
-if [ "${ENVIRONMENT}" == "development" ]; then
+if [ "${ENVIRONMENT}" = "development" ]; then
 	deployments=(
 	# setup a local kind cluster
 	"kind"

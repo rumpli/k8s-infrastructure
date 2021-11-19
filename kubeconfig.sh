@@ -7,7 +7,7 @@ if [ ! -d "$HOME/.kube" ]; then mkdir "$HOME/.kube"; fi
 chmod 700 "$HOME/.kube" || true
 set +u
 if [ ! -f "${KUBECONFIG}" ]; then
-	if [ "${ENVIRONMENT}" == "development" ]; then
+	if [ "${ENVIRONMENT}" = "development" ]; then
 		kind get kubeconfig --name kind > "${KUBECONFIG}" || true
 	else
 		hcloud server list -o noheader | grep "${HETZNER_NODE_NAME}" 1>/dev/null \
