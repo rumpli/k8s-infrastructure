@@ -1,5 +1,5 @@
 #!/bin/bash
-source $(dirname ${BASH_SOURCE[0]})/.env* 1>/dev/null 2>&1 || true # source any hidden env config files if available
+source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/.env* 1>/dev/null 2>&1 || true # source any hidden env config files if available
 
 ########################################################################################################################
 ####### environment ####################################################################################################
@@ -13,11 +13,11 @@ if [ -z "${ENVIRONMENT}" ]; then
 	fi
 fi
 if [ "${ENVIRONMENT}" == "production" ]; then
-	export CONFIGURATION_FILE="$(dirname ${BASH_SOURCE[0]})/config/production.yml"
-	export SECRETS_FILE="$(dirname ${BASH_SOURCE[0]})/config/production.sops"
+	export CONFIGURATION_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/production.yml"
+	export SECRETS_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/production.sops"
 else
-	export CONFIGURATION_FILE="$(dirname ${BASH_SOURCE[0]})/config/development.yml"
-	export SECRETS_FILE="$(dirname ${BASH_SOURCE[0]})/config/development.sops"
+	export CONFIGURATION_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/development.yml"
+	export SECRETS_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/development.sops"
 fi
 set -u
 ########################################################################################################################
