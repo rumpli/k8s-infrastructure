@@ -6,13 +6,13 @@ source $(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/.env* 1>/dev/null 2>&1 || true #
 ########################################################################################################################
 set +u
 if [ -z "${ENVIRONMENT}" ]; then
-	if [ "$(git branch --show-current)" == "develop" ]; then
+	if [ "$(git branch --show-current)" = "develop" ]; then
 		export ENVIRONMENT="development"
 	else
 		export ENVIRONMENT="production"
 	fi
 fi
-if [ "${ENVIRONMENT}" == "production" ]; then
+if [ "${ENVIRONMENT}" = "production" ]; then
 	export CONFIGURATION_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/production.yml"
 	export SECRETS_FILE="$(dirname ${BASH_SOURCE[0]:-${(%):-%x}})/config/production.sops"
 else
@@ -33,7 +33,7 @@ export KUBECONFIG="$HOME/.kube/k8s-infrastructure"
 ########################################################################################################################
 ####### hetzner cloud - k3s ############################################################################################
 ########################################################################################################################
-if [ "${ENVIRONMENT}" == "production" ]; then
+if [ "${ENVIRONMENT}" = "production" ]; then
 	export HCLOUD_TOKEN=$(sops -d ${SECRETS_FILE} | yq -e eval '.secrets.hetzner.token' -)
 
 	export HETZNER_SSH_PORT=$(yq -e eval '.configuration.hetzner.ssh.port' ${CONFIGURATION_FILE})
