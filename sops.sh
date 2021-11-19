@@ -16,12 +16,22 @@ function install_tool {
 }
 
 # $HOME/bin
-if [ ! -d "$HOME/bin" ]; then mkdir "$HOME/bin"; fi
-export PATH="$HOME/bin:$PATH"
+if [[ $OSTYPE != 'darwin'* ]]; then
+  if [ ! -d "$HOME/bin" ]; then mkdir "$HOME/bin"; fi
+  export PATH="$HOME/bin:$PATH"
+fi
 
-# install tools
+## install tools
+if [[ $OSTYPE = 'darwin'* ]]; then which -s brew
+  if [ $? != 0 ]; then /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; fi
+  brew update
+  brew install "sops"
+  brew install "yq"
+  brew cleanup
+else
 install_tool "sops" "https://github.com/mozilla/sops/releases/download/v3.7.1/sops-v3.7.1.linux" "185348fd77fc160d5bdf3cd20ecbc796163504fd3df196d7cb29000773657b74"
 install_tool "yq" "https://github.com/mikefarah/yq/releases/download/v4.11.2/yq_linux_amd64" "6b891fd5bb13820b2f6c1027b613220a690ce0ef4fc2b6c76ec5f643d5535e61"
+fi
 
 # aws config
 set +u
