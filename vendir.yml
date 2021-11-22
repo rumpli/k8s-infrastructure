@@ -98,7 +98,7 @@ directories:
   - path: .
     git:
       url: https://github.com/kubernetes/dashboard
-      ref: v2.0.4
+      ref: v2.4.0
     includePaths:
     - aio/deploy/*
 - path: kubernetes-dashboard/templates/upstream

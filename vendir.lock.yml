@@ -56,10 +56,10 @@ directories:
   path: cert-manager/templates/upstream
 - contents:
   - git:
-      commitTitle: Bump version to 2.0.4 (#5498)...
-      sha: 4da3dfcd15a11011f950d63ba76c03f73b33fe96
+      commitTitle: Prepare for v2.4.0 release (#6536)...
+      sha: e75ebcf688d3b7edff2a050332c8e86ca1e47e12
       tags:
-      - v2.0.4
+      - v2.4.0
     path: .
   path: vendor/github.com/kubernetes/dashboard
 - contents:
