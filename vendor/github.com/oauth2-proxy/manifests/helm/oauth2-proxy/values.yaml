@@ -1,5 +1,12 @@
+# Force the target Kubernetes version (it uses Helm `.Capabilities` if not set).
+# This is especially useful for `helm template` as capabilities are always empty
+# due to the fact that it doesn't query an actual cluster
+kubeVersion:
+
 # Oauth client configuration specifics
 config:
+  # Add config annotations
+  annotations: {}
   # OAuth client ID
   clientID: "XXXXXXX"
   # OAuth client secret
@@ -33,7 +40,7 @@ config:
 
 image:
   repository: "quay.io/oauth2-proxy/oauth2-proxy"
-  tag: "v7.1.3"
+  tag: "v7.2.0"
   pullPolicy: "IfNotPresent"
 
 # Optionally specify an array of imagePullSecrets.
@@ -44,6 +51,9 @@ image:
 
 extraArgs: {}
 extraEnv: []
+
+# -- Custom labels to add into metadata
+customLabels: {}
 
 # To authorize individual email addresses
 # That is part of extraArgs but since this needs special treatment we need to do a separate section

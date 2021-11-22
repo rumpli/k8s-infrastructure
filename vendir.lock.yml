@@ -35,10 +35,10 @@ directories:
   path: ingress-nginx/templates/upstream
 - contents:
   - git:
-      commitTitle: 'Correct semverCompare constraints for ingress. Fixes: #60 (#61)'
-      sha: 2875c404ac768aeaa6aa493f86e9bfe11f241657
+      commitTitle: fix Google's Secret Name (#69)
+      sha: 56cd20e10d12fc9dbbb52eb8c079b9c0e44203a8
       tags:
-      - oauth2-proxy-4.2.2
+      - oauth2-proxy-5.0.5
     path: .
   path: vendor/github.com/oauth2-proxy/manifests
 - contents:

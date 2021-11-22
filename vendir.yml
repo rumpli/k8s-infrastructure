@@ -63,7 +63,7 @@ directories:
   - path: .
     git:
       url: https://github.com/oauth2-proxy/manifests
-      ref: oauth2-proxy-4.2.2
+      ref: oauth2-proxy-5.0.5
     includePaths:
     - helm/oauth2-proxy/**/*
 - path: oauth2-proxy/build/chart
