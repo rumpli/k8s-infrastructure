@@ -105,10 +105,10 @@ directories:
   path: monitoring/grafana/build/chart
 - contents:
   - git:
-      commitTitle: 'Loki Release: update release notes and docs (#2808)...'
-      sha: 6978ee5d73878d7406bda68296a3dd8ecda4d538
+      commitTitle: fix flaky retention tests (#4697) (#4698)...
+      sha: f61a4d2612d8fa3a385c90c363301ec05bab34d8
       tags:
-      - v2.0.0
+      - v2.4.1
     path: .
   path: vendor/github.com/grafana/loki
 - contents:

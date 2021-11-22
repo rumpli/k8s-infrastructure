@@ -164,7 +164,7 @@ directories:
   - path: .
     git:
       url: https://github.com/grafana/loki
-      ref: v2.0.0
+      ref: v2.4.1
     includePaths:
     - production/helm/loki/**/*
     - production/helm/promtail/**/*
