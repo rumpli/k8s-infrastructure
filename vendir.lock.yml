@@ -80,10 +80,11 @@ directories:
   path: monitoring/kube-state-metrics/templates/upstream
 - contents:
   - git:
-      commitTitle: 'charts/prometheus-pingdom-exporter: fix typo (#317)...'
-      sha: 5e43255f64b53d3689d33b79074608be305d2f2d
+      commitTitle: 'docs(prometheus): updating README for prometheus chart to reflect
+        new install location for kube-stat (#1486)...'
+      sha: 3d2266b7011d6dd89d0afbba6c40b56c92bf09cb
       tags:
-      - prometheus-11.16.8
+      - prometheus-14.11.1
     path: .
   path: vendor/github.com/prometheus-community/helm-charts
 - contents:
