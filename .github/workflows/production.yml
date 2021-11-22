@@ -178,16 +178,16 @@ jobs:
       if: ${{ always() }}
       run: ./cleanup.sh
 
-  postgres:
-    if: "!contains(github.event.head_commit.message, 'skip')"
-    name: postgres
-    needs: [ kube-system, hcloud-csi ]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: deploy postgres database
-      working-directory: postgres
-      run: ./deploy.sh
-    - name: cleanup
-      if: ${{ always() }}
-      run: ./cleanup.sh
+#  postgres:
+#    if: "!contains(github.event.head_commit.message, 'skip')"
+#    name: postgres
+#    needs: [ kube-system, hcloud-csi ]
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: deploy postgres database
+#      working-directory: postgres
+#      run: ./deploy.sh
+#    - name: cleanup
+#      if: ${{ always() }}
+#      run: ./cleanup.sh

@@ -41,7 +41,7 @@ deployments+=(
 	"monitoring"
 
 	# we can always use a good database..
-	"postgres"
+	#"postgres"
 )
 
 # deploy it all, all of it!
