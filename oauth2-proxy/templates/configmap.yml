@@ -21,22 +21,22 @@ data:
     redirect_url = "https://oauth2-proxy.(@= data.values.configuration.ingress.domains[0] @)/oauth2/callback"
 
     upstreams = "file:///dev/null"
-    email_domains = "jamesclonk.ch"
+    email_domains = "(@= data.values.secrets.oauth2.email_domain @)"
 
     ## path for for sign_in.html and error.html templates
     custom_templates_dir = "/etc/oauth2-proxy-template/"
     ## path or a URL to an custom image for the sign_in page logo
-    custom_sign_in_logo = "https://jamesclonk.io/images/welcome.png"
+    custom_sign_in_logo = "(@= data.values.secrets.oauth2.custom_sign_in_logo @)"
     ## custom (html) banner string
     # banner = ""
     ## custom (html) footer string
     footer = "-"
 
     provider = "github"
-    github_org = "jamesclonk-io"
-    github_users = "JamesClonk"
+    github_org = "(@= data.values.secrets.oauth2.github.org @)"
+    github_users = "(@= data.values.secrets.oauth2.github.user @)"
 
-    whitelist_domains=".(@= data.values.configuration.ingress.domains[0] @)"
+    whitelist_domains = ".(@= data.values.configuration.ingress.domains[0] @)"
     cookie_domains = ".(@= data.values.configuration.ingress.domains[0] @)"
 
     cookie_expire = "168h"
