@@ -23,10 +23,10 @@ directories:
   path: hcloud-csi/templates/upstream
 - contents:
   - git:
-      commitTitle: Release v0.47.0 (#7211)...
-      sha: 811ed7be57937f767ff955fc601e9ba571d8014e
+      commitTitle: '[Helm] Add labels to resources (#6992)...'
+      sha: 30c0d2260d61fb942bb12ebf829e93dcb0b19988
       tags:
-      - helm-chart-3.33.0
+      - helm-chart-4.0.9
     path: .
   path: vendor/github.com/kubernetes/ingress-nginx
 - contents:
