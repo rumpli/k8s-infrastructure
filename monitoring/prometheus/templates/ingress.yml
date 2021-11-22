@@ -38,7 +38,7 @@ spec:
             port:
               number: 80
         path: /
-        pathType: Exact
+        pathType: Prefix
   #@ for/end host in data.values.configuration.ingress.domains:
   - host: #@ "alertmanager." + host
     http:
@@ -49,4 +49,4 @@ spec:
             port:
               number: 80
         path: /
-        pathType: Exact
+        pathType: Prefix
